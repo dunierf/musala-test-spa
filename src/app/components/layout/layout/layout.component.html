@@ -4,8 +4,12 @@
             <app-sidebar></app-sidebar>
         </div>
         <div class="col position-relative min-vh-100 main">
-            <app-toolbar [title]="title"></app-toolbar>
+            <app-toolbar [title]="title" (showSidebarMenu)="showSidebarMenu()"></app-toolbar>
             <app-content (onRouterOutletActive)="onRouterOutletActive($event)"></app-content>
+            <p>
+                {{ showSideBar}}
+            </p>
         </div>
     </div>
 </div>
+<app-mobile-tablet-sidebar *ngIf="showSideBar" [(showSideBar)]="showSideBar"></app-mobile-tablet-sidebar>

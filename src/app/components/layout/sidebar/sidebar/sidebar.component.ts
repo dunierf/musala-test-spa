@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
 // Models
-import { ItemMenu } from '../../../shared/models/menu/item-menu.model';
-import { items } from '../../../shared/models/menu/menu';
+import { ItemMenu } from '../../../../shared/models/menu/item-menu.model';
+import { items } from '../../../../shared/models/menu/menu';
 
 @Component({
   selector: 'app-sidebar',
