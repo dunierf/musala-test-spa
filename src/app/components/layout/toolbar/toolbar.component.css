@@ -1,0 +1,18 @@
+.toolbar {
+    background: #3f51b5;
+    height: 60px;
+    color: #a0acb9;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+button > span {
+    font-size: 22px;
+}
+
+@media (min-width: 992px) { 
+    .toolbar {
+        position: absolute;
+    }
+}

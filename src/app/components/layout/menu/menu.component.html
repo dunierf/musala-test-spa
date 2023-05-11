@@ -1,0 +1,9 @@
+<div class="d-flex flex-column" *ngIf="items">
+    <div *ngFor="let item of items" class="pb-3 mt-3 item">
+        <a [routerLink]="item.link" routerLinkActive="active" class="d-flex w-100">
+            <span class="flex-grow-1">
+                {{ item.label }}
+            </span>
+        </a>
+    </div>
+</div>
