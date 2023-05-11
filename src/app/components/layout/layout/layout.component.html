@@ -6,10 +6,7 @@
         <div class="col position-relative min-vh-100 main">
             <app-toolbar [title]="title" (showSidebarMenu)="showSidebarMenu()"></app-toolbar>
             <app-content (onRouterOutletActive)="onRouterOutletActive($event)"></app-content>
-            <p>
-                {{ showSideBar}}
-            </p>
         </div>
     </div>
 </div>
-<app-mobile-tablet-sidebar *ngIf="showSideBar" [(showSideBar)]="showSideBar"></app-mobile-tablet-sidebar>
+<app-mobile-tablet-sidebar [(showSideBar)]="showSideBar"></app-mobile-tablet-sidebar>

@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, SimpleChanges, OnChanges } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
@@ -11,45 +11,53 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
         transform: 'translateX(0)'
       })),
       state('hidden', style({
-        transform: 'translateX(-100%)'
-      })),
-      state('initial', style({
-        transform: 'translateX(-100%)'
+        transform: 'translateX(-110%)'
       })),
       transition('show => hidden', [
         animate('0.4s ease-in')
       ]),
-      transition('hide => show', [
-        animate('0.4s ease-out')
-      ]),
-      transition('initial => show', [
+      transition('hidden => show', [
         animate('0.4s ease-out')
       ])
     ])
   ]
 })
-export class MobileTabletSidebarComponent implements OnInit {
+export class MobileTabletSidebarComponent implements OnChanges {
 
   @Input() showSideBar: boolean = false;
 
+  showBackground: boolean = false;
+
   @Output() showSideBarChange = new EventEmitter<boolean>();
 
-  showHide: string = 'initial';
+  showHide: string = 'hidden';
   
-  hideSidebar() {
+  hide() {
     this.showHide = 'hidden';
   }
 
-  ngOnInit(): void {
-    setTimeout( () => { this.showHide = 'show'; }, 20);
+  show() {
+    this.showBackground = true;
+    this.showHide = 'show';
   }
-
+  
   sideBarAnimationDone() {
-    if (this.showHide == 'hidden')
-      setTimeout( () => { 
-        this.showSideBar = false; 
-        this.showSideBarChange.emit(this.showSideBar); 
-      }, 10);
+    if (this.showHide == 'hidden') {
+      this.showBackground = false;
+      this.showSideBarChange.emit(false);
+    }
   }
 
+  ngOnChanges(changes: SimpleChanges) {
+    const show = changes['showSideBar']?.currentValue;
+    
+    if (show != undefined)
+    {
+        if (show)
+          this.show();
+        else
+          this.hide();
+    }
+  }
+  
 }
