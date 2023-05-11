@@ -9,6 +9,8 @@ import { ToolbarComponent } from './components/layout/toolbar/toolbar.component'
 import { ContentComponent } from './components/layout/content/content.component';
 import { SidebarComponent } from './components/layout/sidebar/sidebar.component';
 import { MenuComponent } from './components/layout/menu/menu.component';
+import { GatewaysComponent } from './components/pages/gateways/gateways.component';
+import { GatewayComponent } from './components/pages/gateway/gateway.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { MenuComponent } from './components/layout/menu/menu.component';
     ToolbarComponent,
     ContentComponent,
     SidebarComponent,
-    MenuComponent
+    MenuComponent,
+    GatewaysComponent,
+    GatewayComponent
   ],
   imports: [
     BrowserModule,
