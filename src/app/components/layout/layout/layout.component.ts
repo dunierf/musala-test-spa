@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class LayoutComponent {
 
+  title: string | undefined = undefined;
+
+  onRouterOutletActive(title: string) {
+    this.title = title;
+  }
+
 }
