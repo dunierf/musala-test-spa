@@ -2,17 +2,22 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 // Components
-import { GatewaysComponent } from './components/pages/gateways/gateways.component';
-import { GatewayComponent } from './components/pages/gateway/gateway.component';
+import { GatewaysCollectionPageComponent } from './components/pages/gateways-collection-page/gateways-collection-page.component';
+import { NewGatewayPageComponent } from './components/pages/new-gateway-page/new-gateway-page.component';
+import { EditGatewayPageComponent } from './components/pages/edit-gateway-page/edit-gateway-page.component';
 
 const routes: Routes = [
   {
+    path: 'new-gateway',
+    component: NewGatewayPageComponent
+  },
+  {
     path: 'gateway',
-    component: GatewayComponent
+    component: EditGatewayPageComponent
   },
   {
     path: '**',
-    component: GatewaysComponent
+    component: GatewaysCollectionPageComponent
   }
 ];
 

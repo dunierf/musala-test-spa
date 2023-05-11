@@ -4,16 +4,8 @@
             <app-sidebar></app-sidebar>
         </div>
         <div class="col position-relative min-vh-100 main">
-            <app-toolbar></app-toolbar>
-            <app-content></app-content>
+            <app-toolbar [title]="title"></app-toolbar>
+            <app-content (onRouterOutletActive)="onRouterOutletActive($event)"></app-content>
         </div>
     </div>
 </div>
-<!--<div class="container">
-    <div class="row">
-        <div class="col">
-            aqui
-            <router-outlet></router-outlet>
-        </div>
-    </div>
-</div>-->
