@@ -18,6 +18,7 @@ import { NewGatewayPageComponent } from './components/pages/new-gateway-page/new
 import { GatewaysCollectionPageComponent } from './components/pages/gateways-collection-page/gateways-collection-page.component';
 import { EditGatewayPageComponent } from './components/pages/edit-gateway-page/edit-gateway-page.component';
 import { MobileTabletSidebarComponent } from './components/layout/sidebar/mobile-tablet-sidebar/mobile-tablet-sidebar.component';
+import { CardComponent } from './components/ui/card/card.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { MobileTabletSidebarComponent } from './components/layout/sidebar/mobile
     NewGatewayPageComponent,
     GatewaysCollectionPageComponent,
     EditGatewayPageComponent,
-    MobileTabletSidebarComponent
+    MobileTabletSidebarComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
