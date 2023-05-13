@@ -28,6 +28,10 @@ export class FormGatewayComponent {
     this.gateway?.devices?.push(device);
   }
 
+  removeDevice(index: number) {
+    this.gateway.devices?.splice(index, 1);
+  }
+
   cancel() {
     this.gateway.devices = [];
   }
@@ -35,5 +39,5 @@ export class FormGatewayComponent {
   onSubmit() {
     console.log(this.gateway);
   }
-
+  
 }

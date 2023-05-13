@@ -1,7 +1,7 @@
 <div class="card">
     <div class="p-3">
-        <div class="caption mb-3" *ngIf="title">
-            <h2>{{ title }}</h2>
+        <div *ngIf="title">
+            <app-card-caption [title]="title"></app-card-caption>
         </div>
         <div>
             <ng-content></ng-content>

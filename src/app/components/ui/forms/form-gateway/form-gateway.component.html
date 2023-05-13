@@ -16,7 +16,16 @@
         </div>
     </app-card>
 
-    <form-device *ngFor="let device of gateway?.devices" [device]="device"></form-device>
+    <div class="mt-3" *ngFor="let device of gateway?.devices; index as i">
+        <app-card>
+            <app-card-caption title="Device">
+                <button type="button" class="btn p-0 m-0 btn-sm" (click)="removeDevice(i)" title="Remove this device">
+                    <span class="bi-trash-fill"></span>
+                </button>
+            </app-card-caption>
+            <form-device [device]="device"></form-device>
+        </app-card>
+    </div>
     
     <div class="mt-3">
         <app-card>
