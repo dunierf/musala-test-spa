@@ -28,4 +28,8 @@ export class FormGatewayComponent {
     this.gateway?.devices?.push(device);
   }
 
+  onSubmit() {
+    console.log(this.gateway);
+  }
+
 }
