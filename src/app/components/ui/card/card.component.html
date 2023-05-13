@@ -1,6 +1,8 @@
 <div class="card">
     <div class="p-3">
-        <h2 *ngIf="title" class="pb-3">{{ title }}</h2>
+        <div class="caption mb-3" *ngIf="title">
+            <h2>{{ title }}</h2>
+        </div>
         <div>
             <ng-content></ng-content>
         </div>

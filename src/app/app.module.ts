@@ -2,9 +2,12 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+// Modules
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
+
 
 // Layout
 import { LayoutComponent } from './components/layout/layout/layout.component';
@@ -19,6 +22,9 @@ import { GatewaysCollectionPageComponent } from './components/pages/gateways-col
 import { EditGatewayPageComponent } from './components/pages/edit-gateway-page/edit-gateway-page.component';
 import { MobileTabletSidebarComponent } from './components/layout/sidebar/mobile-tablet-sidebar/mobile-tablet-sidebar.component';
 import { CardComponent } from './components/ui/card/card.component';
+import { InputIpv4AddressComponent } from './components/ui/input-ipv4-address/input-ipv4-address.component';
+import { FormGatewayComponent } from './components/ui/forms/form-gateway/form-gateway.component';
+import { FormDeviceComponent } from './components/ui/forms/form-device/form-device.component';
 
 @NgModule({
   declarations: [
@@ -32,13 +38,17 @@ import { CardComponent } from './components/ui/card/card.component';
     GatewaysCollectionPageComponent,
     EditGatewayPageComponent,
     MobileTabletSidebarComponent,
-    CardComponent
+    CardComponent,
+    InputIpv4AddressComponent,
+    FormGatewayComponent,
+    FormDeviceComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
