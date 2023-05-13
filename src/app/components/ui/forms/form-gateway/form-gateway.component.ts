@@ -22,7 +22,7 @@ export class FormGatewayComponent {
       id: undefined,
       uid: undefined,
       vendor: '',
-      status: ''
+      status: 'online'
     };
 
     this.gateway?.devices?.push(device);
