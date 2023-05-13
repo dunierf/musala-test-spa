@@ -14,10 +14,10 @@ import { Device } from '../../../../shared/models/data/device/device.model';
 export class FormGatewayComponent {
 
   @Input() gateway: Gateway = {
-    
+    devices: []
   };
 
-  AddDevice() {
+  addDevice() {
     const device: Device = {
       id: undefined,
       uid: undefined,
@@ -26,6 +26,10 @@ export class FormGatewayComponent {
     };
 
     this.gateway?.devices?.push(device);
+  }
+
+  cancel() {
+    this.gateway.devices = [];
   }
 
   onSubmit() {
