@@ -31,7 +31,6 @@ import { FormDeviceComponent } from './components/ui/forms/form-device/form-devi
 
 // Components
 import { CardComponent } from './components/ui/card/card/card.component';
-import { InputIpv4AddressComponent } from './components/ui/input-ipv4-address/input-ipv4-address.component';
 import { CardCaptionComponent } from './components/ui/card/card-caption/card-caption.component';
 import { GatewayCollectionComponent } from './components/ui/gateway/gateway-collection/gateway-collection.component';
 
@@ -51,7 +50,6 @@ import { GatewayCollectionComponent } from './components/ui/gateway/gateway-coll
     EditGatewayPageComponent,
     MobileTabletSidebarComponent,
     CardComponent,
-    InputIpv4AddressComponent,
     FormGatewayComponent,
     FormDeviceComponent,
     CardCaptionComponent,

@@ -21,6 +21,26 @@ export class GatewayCollectionComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getAllGateways();
+  }
+
+  editGateway(id: number) {
+
+  }
+
+  removeGateway(id: number) {
+    this.gatewayService.deleteGateway(id).subscribe({
+      next: (response) => {
+        this.getAllGateways();
+      },
+      error: (error) => {
+        this.gateways = null;
+        console.log(error);
+      }
+    });
+  }
+
+  getAllGateways() {
     this.gatewayService.getAll().subscribe({
       next: (response) => {
         this.gateways = response;
@@ -29,7 +49,7 @@ export class GatewayCollectionComponent implements OnInit {
         this.gateways = null;
         console.log(error);
       }
-    });  
+    });
   }
   
 }

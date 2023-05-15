@@ -38,4 +38,9 @@ export class GatewayService {
     const url = environment.apiUrl + 'gateways/' + id;
     return this.http.put<Gateway>(url, body);
   }
+
+  deleteGateway(id: number) : Observable<void> {
+    const url = environment.apiUrl + 'gateways/' + id;
+    return this.http.delete<void>(url);
+  }
 }

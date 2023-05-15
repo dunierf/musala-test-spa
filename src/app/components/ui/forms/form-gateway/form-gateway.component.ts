@@ -14,15 +14,19 @@ import { Device } from '../../../../shared/models/data/device/device.model';
 export class FormGatewayComponent {
 
   @Input() gateway: Gateway = {
+    id: 0,
+    name: '',
+    serialNumber: '',
+    ipv4: '',
     devices: []
   };
 
   addDevice() {
     const device: Device = {
-      id: undefined,
-      uid: undefined,
+      id: 0,
+      uid: 0,
       vendor: '',
-      status: 'online'
+      statusId: 1
     };
 
     this.gateway?.devices?.push(device);

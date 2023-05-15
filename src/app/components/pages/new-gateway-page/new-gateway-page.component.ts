@@ -11,6 +11,10 @@ import { Gateway } from 'src/app/shared/models/data/gateway/gateway.model';
 export class NewGatewayPageComponent {
 
   gateway: Gateway = {
+    id: 0,
+    name: '',
+    serialNumber: '',
+    ipv4: '',
     devices: []
   };
 
