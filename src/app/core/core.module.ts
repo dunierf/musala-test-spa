@@ -4,12 +4,25 @@ import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
+// Services
+import { GatewayService } from './services/gateway/gateway.service';
+import { DeviceStatusService } from './services/device/device-status/device-status.service';
+import { DeviceService } from './services/device/device/device.service';
+
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
     HttpClientModule,
+  ],
+  providers: [
+    GatewayService,
+    DeviceStatusService,
+    DeviceService
+  ],
+  exports: [
+    HttpClientModule
   ]
 })
 export class CoreModule { 

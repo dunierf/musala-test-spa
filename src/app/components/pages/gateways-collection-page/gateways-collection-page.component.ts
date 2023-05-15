@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 // Services
-import { GatewaysService } from 'src/app/core/services/gateways/gateways.service';
+import { GatewayService } from 'src/app/core/services/gateway/gateway.service';
 
 @Component({
   selector: 'app-gateways-collection-page',
@@ -10,7 +10,7 @@ import { GatewaysService } from 'src/app/core/services/gateways/gateways.service
 })
 export class GatewaysCollectionPageComponent implements OnInit {
 
-  constructor(private gatewaysService: GatewaysService) {
+  constructor(private gatewaysService: GatewayService) {
     
   }
 

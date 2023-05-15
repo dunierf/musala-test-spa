@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
+// Modules
+import { CoreModule } from 'src/app/core/core.module';
+
+@Injectable()
 export class DeviceService {
 
   constructor() { }

@@ -1,0 +1,8 @@
+<ng-container *ngIf="gateways">
+    <div class="mb-3" *ngFor="let gateway of gateways">
+        <app-card [title]="gateway.name">
+            <p>Serial: <span>{{ gateway.serialNumber }}</span></p>
+            <p>IpV4: <span>{{ gateway.serialNumber }}</span></p>
+        </app-card>
+    </div>
+</ng-container>

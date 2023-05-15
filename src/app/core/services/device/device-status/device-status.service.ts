@@ -11,9 +11,7 @@ import { CoreModule } from '../../../core.module';
 // Models
 import { DeviceStatus } from '../../../../shared/models/data/device/device-status.model';
 
-@Injectable({
-  providedIn: CoreModule
-})
+@Injectable()
 export class DeviceStatusService {
 
   constructor(private http: HttpClient) { 

@@ -12,11 +12,8 @@ import { CoreModule } from '../../core.module';
 import { Gateway } from 'src/app/shared/models/data/gateway/gateway.model';
 
 
-
-@Injectable({
-  providedIn: CoreModule
-})
-export class GatewaysService {
+@Injectable()
+export class GatewayService {
 
   constructor(private http: HttpClient) { 
 
@@ -41,5 +38,4 @@ export class GatewaysService {
     const url = environment.apiUrl + 'gateways/' + id;
     return this.http.put<Gateway>(url, body);
   }
-
 }
