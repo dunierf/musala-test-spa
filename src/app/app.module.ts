@@ -33,6 +33,7 @@ import { FormDeviceComponent } from './components/ui/forms/form-device/form-devi
 import { CardComponent } from './components/ui/card/card/card.component';
 import { CardCaptionComponent } from './components/ui/card/card-caption/card-caption.component';
 import { GatewayCollectionComponent } from './components/ui/gateway/gateway-collection/gateway-collection.component';
+import { GatewayCollectionRowComponent } from './components/ui/gateway/gateway-collection-row/gateway-collection-row.component';
 
 
 
@@ -53,7 +54,8 @@ import { GatewayCollectionComponent } from './components/ui/gateway/gateway-coll
     FormGatewayComponent,
     FormDeviceComponent,
     CardCaptionComponent,
-    GatewayCollectionComponent
+    GatewayCollectionComponent,
+    GatewayCollectionRowComponent
   ],
   imports: [
     BrowserModule,

@@ -1,9 +1,11 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+
+// Model
+import { Gateway } from 'src/app/shared/models/data/gateway/gateway.model';
 
 // Services
 import { GatewayService } from 'src/app/core/services/gateway/gateway.service';
-import { Gateway } from 'src/app/shared/models/data/gateway/gateway.model';
+
 
 @Component({
   selector: 'gateway-collection',
@@ -14,28 +16,12 @@ export class GatewayCollectionComponent implements OnInit {
 
   gateways: Gateway[] | null = null;
 
-  constructor(private router: Router, private gatewayService: GatewayService) {
+  constructor(private gatewayService: GatewayService) {
     
   }
 
   ngOnInit(): void {
     this.getAllGateways();
-  }
-
-  editGateway(id: number) {
-    this.router.navigateByUrl('gateway/' + id);
-  }
-
-  removeGateway(id: number) {
-    this.gatewayService.deleteGateway(id).subscribe({
-      next: (response) => {
-        this.getAllGateways();
-      },
-      error: (error) => {
-        this.gateways = null;
-        console.log(error);
-      }
-    });
   }
 
   getAllGateways() {

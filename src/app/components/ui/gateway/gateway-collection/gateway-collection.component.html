@@ -1,18 +1,5 @@
 <ng-container *ngIf="gateways">
-    <div class="mb-3" *ngFor="let gateway of gateways">
-        <app-card>
-            <app-card-caption [title]="gateway.name">
-                <button type="button" class="btn p-0 m-0 btn-sm" (click)="editGateway(gateway.id)" title="Edit this gateway">
-                    <span class="bi-pencil-fill"></span>
-                </button>
-                <button type="button" class="btn p-0 ms-3 mt-0 me-0 mb-0 btn-sm" (click)="removeGateway(gateway.id)" title="Remove this gateway">
-                    <span class="bi-trash-fill"></span>
-                </button>
-                <!--  -->
-            </app-card-caption>
-
-            <p>Serial: <span>{{ gateway.serialNumber }}</span></p>
-            <p>IpV4: <span>{{ gateway.serialNumber }}</span></p>
-        </app-card>
-    </div>
+    <app-card title="Gateways" *ngFor="let gateway of gateways">
+        <gateway-collection-row [gateway]="gateway"></gateway-collection-row>
+    </app-card>
 </ng-container>
