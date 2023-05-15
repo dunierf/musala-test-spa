@@ -12,7 +12,7 @@ const routes: Routes = [
     component: NewGatewayPageComponent
   },
   {
-    path: 'gateway',
+    path: 'gateway/:id',
     component: EditGatewayPageComponent
   },
   {

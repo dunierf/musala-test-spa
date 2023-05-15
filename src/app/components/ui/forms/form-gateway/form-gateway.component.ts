@@ -17,7 +17,7 @@ export class FormGatewayComponent {
     id: 0,
     name: '',
     serialNumber: '',
-    ipv4: '',
+    ipV4Address: '',
     devices: []
   };
 
@@ -29,7 +29,7 @@ export class FormGatewayComponent {
       statusId: 1
     };
 
-    this.gateway?.devices?.push(device);
+    this.gateway.devices.push(device);
   }
 
   removeDevice(index: number) {
@@ -41,6 +41,19 @@ export class FormGatewayComponent {
   }
 
   onSubmit() {
+    if (this.gateway.id)
+      this.updateGateway();
+    else
+      this.createGateway();
+  }
+
+  createGateway() {
+    console.log('Create gateway');
+    console.log(this.gateway);
+  }
+
+  updateGateway() {
+    console.log('Update gateway');
     console.log(this.gateway);
   }
   

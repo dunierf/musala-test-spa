@@ -14,7 +14,7 @@ export class NewGatewayPageComponent {
     id: 0,
     name: '',
     serialNumber: '',
-    ipv4: '',
+    ipV4Address: '',
     devices: []
   };
 

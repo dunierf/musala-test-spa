@@ -4,6 +4,6 @@ export interface Gateway {
     id: number;
     name: string;
     serialNumber: string;
-    ipv4: string;
+    ipV4Address: string;
     devices: Device[];
 }

@@ -1,7 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-
-// Modules
-//import { CoreModule } from 'src/app/core/core.module';
+import { Router } from '@angular/router';
 
 // Services
 import { GatewayService } from 'src/app/core/services/gateway/gateway.service';
@@ -16,7 +14,7 @@ export class GatewayCollectionComponent implements OnInit {
 
   gateways: Gateway[] | null = null;
 
-  constructor(private gatewayService: GatewayService) {
+  constructor(private router: Router, private gatewayService: GatewayService) {
     
   }
 
@@ -25,7 +23,7 @@ export class GatewayCollectionComponent implements OnInit {
   }
 
   editGateway(id: number) {
-
+    this.router.navigateByUrl('gateway/' + id);
   }
 
   removeGateway(id: number) {
