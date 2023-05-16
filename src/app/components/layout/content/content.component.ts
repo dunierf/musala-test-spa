@@ -32,6 +32,9 @@ export class ContentComponent {
     if (title)
       return title;
 
+    if (link.substring(0, 8) == "gateway/")
+      return "Editing a gateway";
+    
     return undefined;
   }
 }
