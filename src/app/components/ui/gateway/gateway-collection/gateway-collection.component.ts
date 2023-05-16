@@ -35,5 +35,10 @@ export class GatewayCollectionComponent implements OnInit {
       }
     });
   }
+
+  onRowIsRemoved(id: number) {
+    //console.log('removed row with id = ' + id);
+    this.getAllGateways();
+  }
   
 }

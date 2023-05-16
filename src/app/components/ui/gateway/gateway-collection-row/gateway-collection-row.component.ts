@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 // Model
@@ -16,6 +16,8 @@ export class GatewayCollectionRowComponent {
 
   @Input() gateway: Gateway | undefined = undefined;
 
+  @Output() onRowIsRemoved = new EventEmitter<number> ();
+
   constructor(private router: Router, private gatewayService: GatewayService) {
     
   }
@@ -27,7 +29,7 @@ export class GatewayCollectionRowComponent {
   removeGateway(id: number) {
     this.gatewayService.deleteGateway(id).subscribe({
       next: () => {
-        //this.getAllGateways();
+        this.onRowIsRemoved.emit(id);
       },
       error: (error: any) => {
         console.log(error);
