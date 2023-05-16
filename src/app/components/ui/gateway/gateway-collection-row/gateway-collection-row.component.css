@@ -6,3 +6,7 @@ a, a:hover, a:focus, a:visited {
     text-decoration: none;
     color: blue;
 }
+
+.collection-row {
+    border-bottom: 1px solid #d7e0f1;
+}
