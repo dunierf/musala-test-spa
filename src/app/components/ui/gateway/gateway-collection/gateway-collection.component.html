@@ -1,5 +1,5 @@
 <ng-container *ngIf="gateways">
-    <app-card title="Gateways" *ngFor="let gateway of gateways">
-        <gateway-collection-row [gateway]="gateway"></gateway-collection-row>
+    <app-card title="Gateways">
+        <gateway-collection-row [gateway]="gateway" *ngFor="let gateway of gateways"></gateway-collection-row>
     </app-card>
 </ng-container>
