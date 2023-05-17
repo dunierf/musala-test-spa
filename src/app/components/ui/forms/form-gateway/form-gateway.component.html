@@ -12,7 +12,7 @@
         </div>
         <div class="mt-3">
             <label for="ipv4" class="form-label">Ip v4 Address</label>
-            <input type="text" class="form-control" id="ipv4" name="ipv4" [(ngModel)]="gateway.ipV4Address" 
+            <input type="text" class="form-control" id="ipV4Address" name="ipV4Address" [(ngModel)]="gateway.ipV4Address" 
                 pattern="^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$" 
                 required>
         </div>
@@ -27,16 +27,16 @@
                 </button>
             </app-card-caption>
             <div class="mt-3">
-                <label for="uid" class="form-label">UID</label>
-                <input type="number" class="form-control" id="uid" name="uid" [(ngModel)]="gateway.devices[i].uid" required>
+                <label [for]="'uid_' + i" class="form-label">UID</label>
+                <input type="number" class="form-control" [id]="'uId_' + i" [name]="'uId_' + i" [(ngModel)]="gateway.devices[i].uId" required>
             </div>
             <div class="mt-3">
-                <label for="vendor" class="form-label">Vendor</label>
-                <input type="text" class="form-control" id="vendor" name="vendor" [(ngModel)]="gateway.devices[i].vendor" required>
+                <label [for]="'vendor_' + i" class="form-label">Vendor</label>
+                <input type="text" class="form-control" [id]="'vendor_' + i" [name]="'vendor_' + i" [(ngModel)]="gateway.devices[i].vendor" required>
             </div>
             <div class="mt-3">
                 <label for="status" class="form-label">Status</label>
-                <select class="form-control" id="status" name="status" [(ngModel)]="gateway.devices[i].statusId">
+                <select class="form-control" [id]="'status_' + i" [name]="'status_' + i" [(ngModel)]="gateway.devices[i].statusId">
                     <option *ngFor="let status of deviceStatus" [value]="status.id">
                         {{ status.name }}
                     </option>

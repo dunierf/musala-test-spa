@@ -17,7 +17,7 @@ export class FormDeviceComponent {
 
   @Input() device: Device = {
     id: 0,
-    uid: 0,
+    uId: 0,
     vendor: '',
     statusId: 1
   };

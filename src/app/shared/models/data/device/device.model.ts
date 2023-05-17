@@ -1,6 +1,6 @@
 export interface Device {
     id: number | null;
-    uid: number | null;
+    uId: number | null;
     vendor: string | null;
     statusId: number | null;
 }

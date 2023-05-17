@@ -21,8 +21,8 @@ export class FormGatewayComponent implements OnInit {
 
   deviceStatus: DeviceStatus[] = [];
 
-  @Input() id: number | null = null;
-
+  @Input() id: number = 0;
+  
   gateway: Gateway = {
     id: null,
     name: '',
@@ -38,6 +38,9 @@ export class FormGatewayComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllDeviceStatus();
+
+    if (this.id)
+      this.getGateway(this.id);
   }
 
   getGateway(id: number) {
@@ -53,8 +56,8 @@ export class FormGatewayComponent implements OnInit {
 
   addDevice() {
     const device: Device = {
-      id: null,
-      uid: null,
+      id: 0,
+      uId: null,
       vendor: null,
       statusId: 1
     };
@@ -72,22 +75,32 @@ export class FormGatewayComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.gateway);
-
-    /*if (this.gateway.id)
+    if (this.gateway.id)
       this.updateGateway();
     else
-      this.createGateway();*/
+      this.createGateway();
   }
 
   createGateway() {
-    console.log('Create gateway');
-    console.log(this.gateway);
+    this.gatewayService.postGateway(this.gateway).subscribe({
+      next: (gateway: Gateway) => {
+        this.gateway = gateway;
+      },
+      error: (error: any) => {
+        console.log(error);
+      }
+    });
   }
 
   updateGateway() {
-    console.log('Update gateway');
-    console.log(this.gateway);
+    this.gatewayService.putGateway(this.id, this.gateway).subscribe({
+      next: (gateway: Gateway) => {
+        this.gateway = gateway;
+      },
+      error: (error: any) => {
+        console.log(error);
+      }
+    });
   }
   
   getAllDeviceStatus() {
