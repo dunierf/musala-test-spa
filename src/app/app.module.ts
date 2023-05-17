@@ -27,7 +27,6 @@ import { EditGatewayPageComponent } from './components/pages/edit-gateway-page/e
 
 // Forms
 import { FormGatewayComponent } from './components/ui/forms/form-gateway/form-gateway.component';
-import { FormDeviceComponent } from './components/ui/forms/form-device/form-device.component';
 
 // Components
 import { CardComponent } from './components/ui/card/card/card.component';
@@ -52,7 +51,6 @@ import { GatewayCollectionRowComponent } from './components/ui/gateway/gateway-c
     MobileTabletSidebarComponent,
     CardComponent,
     FormGatewayComponent,
-    FormDeviceComponent,
     CardCaptionComponent,
     GatewayCollectionComponent,
     GatewayCollectionRowComponent
