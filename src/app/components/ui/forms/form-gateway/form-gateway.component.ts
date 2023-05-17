@@ -8,6 +8,7 @@ import { DeviceStatus } from '../../../../shared/models/data/device/device-statu
 
 // Services
 import { DeviceStatusService } from '../../../../core/services/device/device-status/device-status.service';
+import { GatewayService } from '../../../../core/services/gateway/gateway.service';
 
 
 
@@ -20,15 +21,18 @@ export class FormGatewayComponent implements OnInit {
 
   deviceStatus: DeviceStatus[] = [];
 
-  @Input() gateway: Gateway = {
-    id: 0,
+  @Input() id: number | null = null;
+
+  gateway: Gateway = {
+    id: null,
     name: '',
     serialNumber: '',
     ipV4Address: '',
     devices: []
   };
 
-  constructor(private deviceStatusService: DeviceStatusService) {
+  constructor(private deviceStatusService: DeviceStatusService, 
+              private gatewayService: GatewayService) {
     
   }
 
@@ -36,19 +40,31 @@ export class FormGatewayComponent implements OnInit {
     this.getAllDeviceStatus();
   }
 
+  getGateway(id: number) {
+    this.gatewayService.getById(id).subscribe({
+      next: (gateway) => {
+        this.gateway = gateway;
+      },
+      error: (error) => {
+        console.log(error);
+      }
+    });
+  }
+
   addDevice() {
     const device: Device = {
-      id: 0,
-      uid: 0,
-      vendor: '',
+      id: null,
+      uid: null,
+      vendor: null,
       statusId: 1
     };
 
-    this.gateway.devices.push(device);
+    this.gateway?.devices.push(device);
+    console.log(this.gateway);
   }
 
   removeDevice(index: number) {
-    this.gateway.devices?.splice(index, 1);
+    this.gateway?.devices.splice(index, 1);
   }
 
   cancel() {
@@ -56,10 +72,12 @@ export class FormGatewayComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.gateway.id)
+    console.log(this.gateway);
+
+    /*if (this.gateway.id)
       this.updateGateway();
     else
-      this.createGateway();
+      this.createGateway();*/
   }
 
   createGateway() {

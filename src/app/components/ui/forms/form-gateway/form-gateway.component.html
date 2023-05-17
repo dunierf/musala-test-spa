@@ -1,4 +1,6 @@
 <form #formGateway="ngForm" (ngSubmit)="onSubmit()">
+
+    <!-- Gateway general info -->
     <app-card title="Gateway info">
         <div class="mt-3">
             <label for="name" class="form-label">Name</label>
@@ -16,6 +18,7 @@
         </div>
     </app-card>
 
+    <!-- Devices -->
     <div class="mt-3" *ngFor="let device of gateway.devices; index as i">
         <app-card>
             <app-card-caption title="Device">
@@ -23,16 +26,31 @@
                     <span class="bi-trash-fill"></span>
                 </button>
             </app-card-caption>
-            <form-device [device]="device" [deviceStatus]="deviceStatus"></form-device>
+            <div class="mt-3">
+                <label for="uid" class="form-label">UID</label>
+                <input type="number" class="form-control" id="uid" name="uid" [(ngModel)]="gateway.devices[i].uid" required>
+            </div>
+            <div class="mt-3">
+                <label for="vendor" class="form-label">Vendor</label>
+                <input type="text" class="form-control" id="vendor" name="vendor" [(ngModel)]="gateway.devices[i].vendor" required>
+            </div>
+            <div class="mt-3">
+                <label for="status" class="form-label">Status</label>
+                <select class="form-control" id="status" name="status" [(ngModel)]="gateway.devices[i].statusId">
+                    <option *ngFor="let status of deviceStatus" [value]="status.id">
+                        {{ status.name }}
+                    </option>
+                </select>
+            </div>
         </app-card>
     </div>
     
     <div class="mt-3">
         <app-card>
             <div class="d-flex justify-content-between">
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-primary" [disabled]="formGateway.form.invalid">
                     {{ gateway.id ? 'Update' : 'Create'}}
-                </button><!-- [disabled]="formGateway.form.invalid" -->
+                </button>
                 <button type="reset" class="btn btn-danger" (click)="cancel()" *ngIf="!gateway.id">Cancel</button>
                 <button type="button" class="btn btn-secondary" (click)="addDevice()" [disabled]="gateway.devices && gateway.devices.length >= 10">
                     Add device

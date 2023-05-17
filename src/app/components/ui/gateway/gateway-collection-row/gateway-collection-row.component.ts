@@ -26,15 +26,17 @@ export class GatewayCollectionRowComponent {
     this.router.navigateByUrl('gateway/' + id);
   }
 
-  removeGateway(id: number) {
-    this.gatewayService.deleteGateway(id).subscribe({
-      next: () => {
-        this.onRowIsRemoved.emit(id);
-      },
-      error: (error: any) => {
-        console.log(error);
-      }
-    });
+  removeGateway(id: number | null) {
+    if (id) {
+      this.gatewayService.deleteGateway(id).subscribe({
+        next: () => {
+          this.onRowIsRemoved.emit(id);
+        },
+        error: (error: any) => {
+          console.log(error);
+        }
+      });
+    }
   }
 
 }
