@@ -13,7 +13,7 @@
                         </a>
                     </span>
                 </div>
-                <div class="col-12 col-md-3 mb-1">
+                <div class="col-12 col-md-2 mb-1">
                     <span class="d-md-none">
                         Serial: 
                     </span>
@@ -27,6 +27,14 @@
                     </span>
                     <span>
                         {{ gateway.ipV4Address }}
+                    </span>
+                </div>
+                <div class="col-12 col-md-1 mb-1">
+                    <span class="d-md-none">
+                        Device(s): 
+                    </span>
+                    <span>
+                        {{ gateway.devices.length }}
                     </span>
                 </div>
             </div>
