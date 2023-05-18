@@ -1,0 +1,4 @@
+<div class="sidebar-wrapper position-fixed top-0 vh-100 d-lg-none" [@showHide]="showHide" (@showHide.done)="sideBarAnimationDone()">
+    <app-sidebar></app-sidebar>
+</div>
+<div class="background position-fixed top-0 start-0 vh-100 w-100 d-lg-none" (click)="hide()" *ngIf="showBackground"></div>
