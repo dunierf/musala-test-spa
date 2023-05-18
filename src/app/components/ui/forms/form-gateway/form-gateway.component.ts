@@ -31,6 +31,10 @@ export class FormGatewayComponent implements OnInit {
     devices: []
   };
 
+  alertMessage: string = '';
+  
+  alertType: string = 'success';
+
   constructor(private deviceStatusService: DeviceStatusService, 
               private gatewayService: GatewayService) {
     
@@ -70,23 +74,26 @@ export class FormGatewayComponent implements OnInit {
     this.gateway?.devices.splice(index, 1);
   }
 
-  cancel() {
+  removeAllDevices() {
     this.gateway.devices = [];
   }
-
-  onSubmit() {
+  
+  onSubmit(gatewayForm: NgForm) {
     if (this.gateway.id)
       this.updateGateway();
     else
-      this.createGateway();
+      this.createGateway(gatewayForm);
   }
 
-  createGateway() {
+  createGateway(gatewayForm: NgForm) {
     this.gatewayService.postGateway(this.gateway).subscribe({
       next: (gateway: Gateway) => {
-        this.gateway = gateway;
+        gatewayForm.resetForm();
+        this.removeAllDevices();
+        this.successMessage('Gateway successfully created!!!');
       },
       error: (error: any) => {
+        this.errorMessage('Error');
         console.log(error);
       }
     });
@@ -96,8 +103,10 @@ export class FormGatewayComponent implements OnInit {
     this.gatewayService.putGateway(this.id, this.gateway).subscribe({
       next: (gateway: Gateway) => {
         this.gateway = gateway;
+        this.successMessage('Gateway successfully updated!!!');
       },
       error: (error: any) => {
+        this.errorMessage('Error');
         console.log(error);
       }
     });
@@ -112,6 +121,20 @@ export class FormGatewayComponent implements OnInit {
         console.log(error);
       }
     });
+  }
+
+  successMessage(text: string) {
+    this.alertMessage = text;
+    this.alertType = "success";
+  }
+
+  errorMessage(text: string) {
+    this.alertMessage = text;
+    this.alertType = "danger";
+  }
+
+  onCloseAlert() {
+    this.alertMessage = '';
   }
 
 }
