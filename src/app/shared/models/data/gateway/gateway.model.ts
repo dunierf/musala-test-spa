@@ -1,9 +1,9 @@
 import { Device } from "../device/device.model";
 
 export interface Gateway {
-    id: number;
+    id: number | null;
     name: string;
-    serial: string;
-    ipv4: string;
-    devices?: Device[];
+    serialNumber: string;
+    ipV4Address: string;
+    devices: Device[];
 }
